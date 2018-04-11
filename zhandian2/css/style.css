@@ -1,0 +1,104 @@
+@import url(reset.css);
+@import url(../fonts/iconfont.css);
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+html,
+body,
+.wrap {
+  width: 100%;
+  height: 100%;
+  min-width: 320px; }
+
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  box-sizing: border-box; }
+
+html {
+  font-size: 625%; }
+
+header {
+  width: 100%;
+  height: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  line-height: 0.45rem;
+  text-align: center;
+  flex-shrink: 1;
+  flex-grow: 0; }
+  header p {
+    font-size: 0.16rem;
+    color: #999; }
+  header .i1 {
+    width: 10%; }
+  header .p1 {
+    width: 80%; }
+  header .p2 {
+    width: 10%;
+    position: relative; }
+    header .p2 .i3 {
+      right: 0.1rem;
+      position: absolute; }
+    header .p2 .i2 {
+      right: 0.3rem;
+      position: absolute; }
+
+section {
+  width: 100%;
+  height: auto;
+  flex-grow: 1; }
+  section ul {
+    width: 100%;
+    height: 0.8rem; }
+    section ul li {
+      width: 25%;
+      height: 100%;
+      float: left;
+      text-align: center; }
+      section ul li i {
+        padding: 0.1rem;
+        border: 0.01rem solid #999;
+        line-height: 0.3rem;
+        border-radius: 50%;
+        font-size: 0.16rem; }
+      section ul li p {
+        margin-top: 0.1rem; }
+  section .center {
+    width: 100%;
+    height: 100%;
+    text-align: center; }
+    section .center .p3 {
+      margin-top: 50%; }
+    section .center p {
+      font-size: 0.16rem;
+      color: #999; }
+
+footer {
+  width: 100%;
+  height: 1rem;
+  flex-shrink: 1;
+  flex-grow: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  border-top: 0.01rem solid #999;
+  line-height: 1rem; }
+  footer .p4 {
+    width: 10%; }
+    footer .p4 i {
+      padding: 0.1rem;
+      border: 0.01rem solid #999;
+      border-radius: 50%; }
+  footer .p5 {
+    width: 80%; }
+    footer .p5 i {
+      padding: 0.1rem 0.5rem;
+      border: 0.01rem solid #999;
+      border-radius: 50%; }
+
+/*# sourceMappingURL=style.css.map */

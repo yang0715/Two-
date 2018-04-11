@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "../fonts/iconfont.css";
+@mixin wh($w:100%,$h:100%){
+	width:$w;
+	height:$h;
+}
+
+@mixin flex($dir:row){
+	display:flex;
+	flex-direction:$dir;
+}
+
+.wrap{
+	@include wh();
+	@include flex();
+}
+
+
+header{
+	@include wh($w:100%,$h:auto);
+} 
+
+section{
+	@include wh($w:100%,$h:auto);
+}
+
+footer{
+	@include wh($w:100%,$h:auto);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
