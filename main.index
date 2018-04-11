@@ -1,0 +1,53 @@
+// 文件的深度拷贝
+// 1、引入 fs path   require()
+var fs = require('fs');
+var path = require('path');
+// 2、读取文件目录  fs.readdir
+function copyFile (src, callback) {
+    fs.readdir(src, function (err, paths) {
+        if (err) {
+            throw err;
+        }
+        // 3、遍历paths  forEach
+        paths.forEach(function (file) {
+            // 4、追加路径 path.join path.resolve
+            var pathname = path.join(src, file);
+            // 5、查看文件信息
+            fs.stat(pathname, function (err, st) {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                if (st.isFile()) {
+                    // 6、 输出 判断大小 -》 判断文件夹是否存在big small -> 创建->拷贝
+                    callback && callback(pathname, st.size);
+                } else {
+                    copyFile(pathname, callback);
+                }
+            });
+        });
+    });
+}
+copyFile(path.join(__dirname, 'src'), function (pathname, size) {
+    // 根据文件大小决定创建的文件夹
+    if (size / 1024 / 1024 > 300) {
+        createDir(path.join(__dirname, 'big'), function () {
+            var rs = fs.createReadStream(pathname);
+            var ws = fs.createWriteStream(path.join(__dirname, 'big', path.basename(pathname)));
+            rs.pipe(ws);
+        });
+    } else {
+        createDir(path.join(__dirname, 'small'), function () {
+            fs.writeFileSync(path.join(__dirname, 'small', path.basename(pathname)), fs.readFileSync(pathname));
+        });
+    };
+});
+function createDir (dist, ck) {
+    var exist = fs.existsSync(dist);
+    if (!exist) {
+        fs.mkdirSync(dist);
+        ck && ck();
+    } else {
+        ck && ck();
+    }
+}
